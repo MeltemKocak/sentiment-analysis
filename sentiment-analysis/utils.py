@@ -10,11 +10,11 @@ __tokenizer = None
 
 
 def making_prediction(sentence):
-    # degiskenler global yapama
+    # degiskenler global yapma
     global __model
     global __tokenizer
     # tokenizer yukleme
-    with open("tweeter_tokenizer.pickle", "rb") as f:
+    with open("tweeter_tokenizer.pickle", "rb") as f:#modelleri yükleme
         __tokenizer = pickle.load(f)
         print(__model)
 

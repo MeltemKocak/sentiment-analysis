@@ -11,12 +11,12 @@ def hello_world():
     return render_template('index.html')
 
 
-@app.route('/classify_sentiments', methods=['GET', 'POST'])
+@app.route('/classify_sentiments', methods=['GET', 'POST'])          #html bunu çalıştırırpost cümle gönderiri
 def tweeter_senti():
     if request.method == 'POST':
-        senti = request.form['sentence']
-        pred = utils.making_prediction(senti)
-        group = np.argmax(pred)
+        senti = request.form['sentence']#
+        pred = utils.making_prediction(senti) #
+        group = np.argmax(pred)                                       #en buyuk %yi getir katgeoriden
         print(group)
         output = ""
         if group == 0:
@@ -24,10 +24,22 @@ def tweeter_senti():
         elif group == 1:
             output = "notr"
         elif group == 2:
-            output = "positif"
+            output = "pozitif"
 
         return render_template("index.html", message=f' {output} '.upper())
 
 
 if __name__ == '__main__':
     app.run()
+
+
+
+
+
+
+
+
+
+
+
+
